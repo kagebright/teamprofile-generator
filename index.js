@@ -3,6 +3,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const questions = require("./lib/questions.js");
+const path = require("path")
 const fs = require("fs");
 const inquirer = require("inquirer");
 
@@ -32,5 +33,26 @@ inquirer
             type: 'input',
             message: "Which type of team member would you like to add?",
             name: 'more team members',  
-        },
-    ])
+        }
+
+        //repeating questions for other employee or end questions
+        if (answers.addOrEnd) {
+            return promptUser();
+        }
+
+        displayHTML();
+    ]);
+
+    //function to display the HTML
+    let displayHTML = () => {
+        let makeHTML = render(employeeArray);
+        fs.writetoFile(outputPath, makeHTML, function(err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Successfully created user file")
+            };
+        });
+    };
+
+    promptUser();
