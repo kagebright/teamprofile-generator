@@ -1,1 +1,1 @@
-const engineer = require('./');
+const engineer = require('.');

@@ -1,1 +1,3 @@
-const employee = require('./');
+const Employee = require('../lib/Employee');
+
+test
