@@ -1,33 +1,27 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
-const questions = require("./lib/questions.js");
-const path = require("path")
 const fs = require("fs");
-const inquirer = require("inquirer");
 
 inquirer
     .prompt([
         {
             type: 'input',
             message: "What is the team manager's name?",
-            name: 'team manager',  
+            name: 'manager name',  
         },
         {
             type: 'input',
             message: "What is the team manager's id?",
-            name: 'team manager id',  
+            name: 'employee ID',  
         },
         {
             type: 'input',
             message: "What is the team manager's email?",
-            name: 'team manager email',  
+            name: 'employee email',  
         },
         {
             type: 'input',
             message: "What is the team manager's office number?",
-            name: 'team manager number',  
+            name: 'office number',  
         },
         {
             type: 'input',
@@ -36,11 +30,11 @@ inquirer
         }
 
         //repeating questions for other employee or end questions
-        if (answers.addOrEnd) {
-            return promptUser();
-        }
+        //if (answers.addOrEnd) {
+            //return promptUser();
+        //}
 
-        displayHTML();
+        //displayHTML();
     ]);
 
     //function to display the HTML
