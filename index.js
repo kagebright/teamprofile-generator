@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const path = require("path");
 
 //lib modules
 const Employee = require("./lib/Employee");
@@ -7,7 +8,12 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
-let employeeArray = [];
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+const render = require("./dist/htmlRenderer")
+
+const employees = [];
 
 //function that prompts the user for questions
 function askQuestions() {
@@ -21,7 +27,7 @@ function askQuestions() {
       {
         type: 'input',
         message: "What is your ID number?",
-        name: "ID",  
+        name: "id",  
       },
       {
         type: 'input',
@@ -64,7 +70,7 @@ function askManagerQuestions(answers) {
               answers.email,
               managerAnswer.officeNumber
             );
-            employeeArray.push(newManager);
+           employees.push(newManager);
           });
       //if engineer is selected
       } 
@@ -83,7 +89,7 @@ function askManagerQuestions(answers) {
               answers.email,
               githubAnswer.github
             );
-            employeeArray.push(newEngineer);
+           employees.push(newEngineer);
           });
       //if intern is selected
       };
@@ -102,13 +108,13 @@ function askManagerQuestions(answers) {
               answers.email,
               internAnswers.school
             );
-            employeeArray.push(newIntern);
+           employees.push(newIntern);
           });
       };
     
 //function that displays HTML
 let displayHTML = () => {
-    let createHTML = render(employeeArray);
+    let createHTML = render (employees);
     fs.writeFile(outputPath, createHTML, (error) =>  {
         if (error) {
             console.log(error);
@@ -118,4 +124,4 @@ let displayHTML = () => {
     });
 };
 
-promptUser();
+askQuestions();
