@@ -1,22 +1,22 @@
 const Engineer = require('./lib/Engineer');
 
 test('creates an engineer object', () => {
-    const engineer = new Engineer('John Doe', '1', 'johndoe@example.com', 'johndoe');
+    const engineer = new Engineer('John Wick', '1', 'johnwick@gmail.com', 'joh Wick');
 
-    expect(engineer.name).toBe('John Doe');
+    expect(engineer.name).toBe('John Wick');
     expect(engineer.id).toBe('1');
-    expect(engineer.email).toBe('johndoe@example.com');
-    expect(engineer.github).toBe('johndoe');
+    expect(engineer.email).toBe('johnwick@gmail.com');
+    expect(engineer.github).toBe('joh Wick');
 });
 
-test('gets the engineer github', () => {
-    const engineer = new Engineer('John Doe', '1', 'johndoe@example.com', 'johndoe');
+test('returns the engineer github', () => {
+    const engineer = new Engineer('John Wick', '1', 'johnwick@gmail.com', 'joh Wick');
 
-    expect(engineer.getGithub()).toBe('johndoe');
+    expect(engineer.getGithub()).toBe('johnwick');
 });
 
-test('gets the engineer role', () => {
-    const engineer = new Engineer('John Doe', '1', 'johndoe@example.com', 'johndoe');
+test('returns the engineer role', () => {
+    const engineer = new Engineer('John Wick', '1', 'johnwick@gmail.com', 'joh Wick');
 
     expect(engineer.getRole()).toBe('Engineer');
 });

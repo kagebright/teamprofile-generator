@@ -11,7 +11,7 @@ const Manager = require("./lib/Manager");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./dist/htmlRenderer")
+const render = require("./dist/renderHTML")
 
 const employees = [];
 
@@ -114,12 +114,12 @@ function askManagerQuestions(answers) {
     
 //function that displays HTML
 let displayHTML = () => {
-    let createHTML = render (employees);
+    let createHTML = render(employees);
     fs.writeFile(outputPath, createHTML, (error) =>  {
         if (error) {
             console.log(error);
         } else {
-            console.log("Successfully created file!");
+            console.log("Successfully created file!" + outputPath);
         }
     });
 };

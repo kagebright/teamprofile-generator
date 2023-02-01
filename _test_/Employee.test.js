@@ -1,33 +1,33 @@
 const Employee = require('./lib/Employee');
 
 test('creates an employee object', () => {
-    const employee = new Employee('John Doe', '1', 'johndoe@example.com');
+    const employee = new Employee('John Wick', '1', 'johnwick@gmail.com');
 
-    expect(employee.name).toBe('John Doe');
+    expect(employee.name).toBe('John Wick');
     expect(employee.id).toBe('1');
-    expect(employee.email).toBe('johndoe@example.com');
+    expect(employee.email).toBe('johnwick@gmail.com');
 });
 
-test('gets the employee name', () => {
-    const employee = new Employee('John Doe', '1', 'johndoe@example.com');
+test('returns the employee name', () => {
+    const employee = new Employee('John Wick', '1', 'johnwick@gmail.com');
 
-    expect(employee.getName()).toBe('John Doe');
+    expect(employee.getName()).toBe('John Wick');
 });
 
-test('gets the employee id', () => {
-    const employee = new Employee('John Doe', '1', 'johndoe@example.com');
+test('returns the employee id', () => {
+    const employee = new Employee('John Wick', '1', 'johnwick@gmail.com');
 
     expect(employee.getId()).toBe('1');
 });
 
-test('gets the employee email', () => {
-    const employee = new Employee('John Doe', '1', 'johndoe@example.com');
+test('returns the employee email', () => {
+    const employee = new Employee('John Wick', '1', 'johnwick@gmail.com');
 
-    expect(employee.getEmail()).toBe('johndoe@example.com');
+    expect(employee.getEmail()).toBe('johnwick@gmail.com');
 });
 
-test('gets the employee role', () => {
-    const employee = new Employee('John Doe', '1', 'johndoe@example.com');
+test('returns the employee role', () => {
+    const employee = new Employee('John Wick', '1', 'johnwick@gmail.com');
 
     expect(employee.getRole()).toBe('Employee');
 });
