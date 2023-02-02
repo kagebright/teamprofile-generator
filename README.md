@@ -14,7 +14,7 @@ To run this app, you must have Node.js installed on your computer.
 3. Run node index.js in your terminal to start the application.
 
 ## Contributors
-This project was creatted by [Bright Abety](https://github.com/kagebright)
+This project was created by [Bright Abety](https://github.com/kagebright)
 
 ## Links
 - [GitHub repo](https://github.com/kagebright/teamprofile-generator)
