@@ -90,6 +90,7 @@ function askManagerQuestions(answers) {
               githubAnswer.github
             );
            employees.push(newEngineer);
+           addMoreEmployees();
           });
       //if intern is selected
       };
@@ -109,19 +110,30 @@ function askManagerQuestions(answers) {
               internAnswers.school
             );
            employees.push(newIntern);
+           addMoreEmployees();
+          });
+
+        //add more employees if there's more
+      };
+      function addMoreEmployees() {
+        inquirer
+          .prompt([
+            {
+              type: "confirm",
+              name: "addMore",
+              message: "Would you like to add an additional employee?",
+              default: false,
+            }
+          ])
+          .then(({ addMore }) => {
+            if (addMore) {
+              askQuestions();
+            } else {
+              const html = render(employees);
+              fs.writeFileSync(outputPath, html);
+              console.log('Team profile generated at ${outputPath}');
+            }
           });
       };
-    
-//function that displays HTML
-let displayHTML = () => {
-    let createHTML = render(employees);
-    fs.writeFile(outputPath, createHTML, (error) =>  {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Successfully created file!" + outputPath);
-        }
-    });
-};
 
 askQuestions();
